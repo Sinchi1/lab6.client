@@ -13,19 +13,13 @@ public class HelpCommand extends AbstractCommand  {
         super(name, description);
     }
 
-    CommandManager commandManager = new CommandManager();
     /**
      * The method that printing all commands of the programm
      * @return void
      */
     @Override
     public String execute(String args) {
-        HashMap<String, AbstractCommand> commandHashMap = commandManager.getCommandHashMap();
-        StringBuilder result = new StringBuilder("");
-        for (Map.Entry<String, AbstractCommand> entry : commandHashMap.entrySet()){
-            result.append("Описание: " +entry.getValue());
-        }
-        return result.toString();
+        return "";
     }
 
 }

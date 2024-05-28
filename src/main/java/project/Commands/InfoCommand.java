@@ -12,17 +12,13 @@ public class InfoCommand extends AbstractCommand {
         super(name, description);
     }
 
-    CollectionManager collectionManager;
-
-    ConsolePrinter consolePrinter = new ConsolePrinter();
     /**
      * The method that printing all information about collection
      * @return void
      */
     @Override
     public String execute(String args) {
-        collectionManager = CollectionManager.getInstance();
-        return (collectionManager.getCollectionInfo());
+       return "";
     }
 
 }
