@@ -1,9 +1,5 @@
 package project.Commands;
 
-import project.Managers.*;
-
-import java.util.HashMap;
-import java.util.Map;
 /**
  * The class used to call the method and display its work
  */
