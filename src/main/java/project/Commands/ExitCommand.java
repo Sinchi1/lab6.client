@@ -1,5 +1,7 @@
 package project.Commands;
 
+import project.Common.Request;
+
 /**
  * The class used to call the method and display its work
  */
@@ -13,9 +15,9 @@ public class ExitCommand extends AbstractCommand{
      * @return void
      */
     @Override
-    public String execute(String args) {
+    public Request execute(String[] args) {
 //        ConsolePrinter.messageToConsole("Программа успешно прекращена! (Без сохранения)");
         System.exit(1);
-        return args;
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package project.Commands;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import project.Common.Request;
 
 import java.io.IOException;
 /**
@@ -12,5 +13,5 @@ public interface InterCommand {
 
     public String getName();
 
-    public String execute(String args) throws IOException;
+    public Request execute(String[] args) throws IOException;
 }

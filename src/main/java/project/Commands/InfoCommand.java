@@ -1,11 +1,14 @@
 package project.Commands;
 
 
+import project.Common.Request;
+
 /**
  * The class used to call the method and display its work
  */
 public class InfoCommand extends AbstractCommand {
 
+    String commname = "info";
     public InfoCommand(String name, String description) {
         super(name, description);
     }
@@ -15,8 +18,8 @@ public class InfoCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public String execute(String args) {
-       return "";
+    public Request execute(String[] args) {
+        return new Request(commname, args, null);
     }
 
 }

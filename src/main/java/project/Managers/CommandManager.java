@@ -1,14 +1,20 @@
 package project.Managers;
 
 import project.Commands.*;
+import project.Common.Request;
 
+import java.io.IOException;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 /**
  * The class that contains information about Commands
  */
-public class CommandManager {
+public class CommandManager implements Serializable {
+@Serial
+    private static final long serialVersionUID = 1454L;
 
     public void cmdAdd() {
         registerCommand("help", new HelpCommand("Help", "вывести справку по доступным командам"));
@@ -57,7 +63,8 @@ public class CommandManager {
         }
     }
 
-    public boolean insertNeededCommand(String command){
+
+    public boolean insertNeededObject(String command){
         switch (command){
             case "add","update_id" ->{
                 return true;

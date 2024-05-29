@@ -1,5 +1,7 @@
 package project.Commands;
 
+import project.Common.Request;
+
 /**
  * The class used to call the method and display its work
  */
@@ -14,8 +16,8 @@ public class RemoveOscarCountCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public String  execute(String args) {
-        return "";
+    public Request execute(String[] args) {
+        return null;
     }
 
 }

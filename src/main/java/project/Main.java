@@ -3,7 +3,7 @@ package project;
 import project.Managers.ProgramController;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         ProgramController programController = new ProgramController();
 

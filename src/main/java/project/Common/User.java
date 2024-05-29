@@ -3,10 +3,13 @@ package project.Common;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 12312312312312321L;
     private final String host;
     private final int port;
     private Socket socket;

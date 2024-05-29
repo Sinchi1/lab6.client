@@ -1,6 +1,8 @@
 package project.Commands;
 
 
+import project.Common.Request;
+
 import java.io.IOException;
 /**
  * The class used to call the method and display its work
@@ -15,8 +17,8 @@ public class ExecuteScriptCommand extends AbstractCommand{
      * @return void
      */
     @Override
-    public String execute(String args) throws IOException {
+    public Request execute(String[] args) throws IOException {
 //        programRunner.runOnce(args);
-        return "";
+        return null;
     }
 }
