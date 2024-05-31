@@ -2,12 +2,18 @@ package project.Collections;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 @JacksonXmlRootElement
 /**
  * Main class for elements of collection
  */
-public class Movie {
+public class Movie implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 123456L;
     @JacksonXmlProperty(localName = "id")
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     @JacksonXmlProperty(localName = "name")

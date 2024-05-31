@@ -1,8 +1,11 @@
 package project.Collections;
+
+import java.io.Serializable;
+
 /**
  * A class that is part of the collection
  */
-public enum MovieGenre {
+public enum MovieGenre implements Serializable {
     ACTION,
     DRAMA,
     ADVENTURE,

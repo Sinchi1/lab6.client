@@ -17,7 +17,8 @@ public class FilterNameCommand extends AbstractCommand  {
      */
     @Override
     public Request execute(String[] args) {
-        return null;
+        return new Request("filter_by_name", args, null);
+
     }
 
 }

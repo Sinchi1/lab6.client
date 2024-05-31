@@ -18,6 +18,7 @@ public class RemoveByIdCommand extends AbstractCommand {
      */
     @Override
     public Request execute(String[] args) {
-        return null;
+        return new Request("remove_by_id", args, null);
+
     }
 }

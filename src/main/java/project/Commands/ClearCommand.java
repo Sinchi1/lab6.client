@@ -8,6 +8,8 @@ import project.Common.Request;
  */
 public class ClearCommand extends AbstractCommand {
 
+    private final String commname = "clear";
+
     public ClearCommand(String name, String description) {
         super(name, description);
     }
@@ -18,7 +20,8 @@ public class ClearCommand extends AbstractCommand {
      */
     @Override
     public Request execute(String[] args) {
-        return null;
+        return new Request(commname, args, null);
+
     }
 
 }

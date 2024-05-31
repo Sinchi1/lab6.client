@@ -52,7 +52,7 @@ public class CommandManager implements Serializable {
 
     public boolean isHavingArgument(String command){
         switch (command){
-            case "add", "update_id","remove_by_id","execute_script","add_if_max",
+            case "update_id","remove_by_id","execute_script",
                  "remove_any_by_oscars_count",
                  "remove_lower","filter_by_name"-> {
                 return true;

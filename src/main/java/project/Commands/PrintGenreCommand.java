@@ -17,6 +17,6 @@ public class PrintGenreCommand extends AbstractCommand  {
      */
     @Override
     public Request execute(String[] args) {
-        return null;
+        return new Request("print_genre", args, null);
     }
 }
