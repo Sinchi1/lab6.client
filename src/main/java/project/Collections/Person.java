@@ -1,10 +1,16 @@
 package project.Collections;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * A class that is part of the collection
  */
-public class Person {
+public class Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1234562132L;
 
     @JacksonXmlProperty(localName = "personName")
     private String name; //Поле не может быть null, Строка не может быть пустой

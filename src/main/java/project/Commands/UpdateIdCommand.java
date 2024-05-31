@@ -1,10 +1,13 @@
 package project.Commands;
 
 
+import project.Common.Request;
+
 /**
  * The class used to call the method and display its work
  */
 public class UpdateIdCommand extends AbstractCommand {
+    String commname = "update_id";
 
     public UpdateIdCommand(String name, String description) {
         super(name, description);
@@ -16,7 +19,7 @@ public class UpdateIdCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public String execute(String args){
-        return "";
+    public Request execute(String[] args){
+        return new Request(commname, args, null);
     }
 }

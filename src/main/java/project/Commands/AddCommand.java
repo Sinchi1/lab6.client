@@ -1,11 +1,17 @@
 package project.Commands;
 
 
+import project.Collections.Movie;
+import project.Common.Request;
+import project.Readers.MovieReader;
+
 import java.io.IOException;
 /**
  * The class used to call the method and display its work
  */
 public class AddCommand extends AbstractCommand {
+
+    MovieReader movieReader = new MovieReader();
 
     public AddCommand(String name, String description) {
         super(name, description);
@@ -15,8 +21,8 @@ public class AddCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public String execute(String args) throws IOException {
-
-        return ("Вы успешно создали элемент коллекции!");
+    public Request execute(String[] args) throws IOException {
+        Movie mov1 = movieReader.readMovie();
+    return new Request("add",null,mov1);
     }
 }

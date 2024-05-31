@@ -1,10 +1,14 @@
 package project.Commands;
 
 
+import project.Common.Request;
+
 /**
  * The class used to call the method and display its work
  */
 public class ClearCommand extends AbstractCommand {
+
+    private final String commname = "clear";
 
     public ClearCommand(String name, String description) {
         super(name, description);
@@ -15,8 +19,9 @@ public class ClearCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public String execute(String args) {
-        return "";
+    public Request execute(String[] args) {
+        return new Request(commname, args, null);
+
     }
 
 }

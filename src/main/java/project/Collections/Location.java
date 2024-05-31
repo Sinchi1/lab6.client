@@ -1,10 +1,17 @@
 package project.Collections;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * A class that is part of the collection
  */
-public class Location {
+public class Location implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 12345667L;
     @JacksonXmlProperty(localName = "x")
     private Float x; //Поле не может быть null
     @JacksonXmlProperty(localName = "y")
