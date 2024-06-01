@@ -22,7 +22,7 @@ public class CommandManager implements Serializable {
         registerCommand("show", new ShowCommand("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении"));
         registerCommand("clear", new ClearCommand("clear", "очистить коллекцию"));
         registerCommand("add", new AddCommand("add", "добавить новый элемент в коллекцию"));
-        registerCommand("exit", new ExitCommand("exit", "завершить программу (без сохранения в файл)"));
+        registerCommand("exit", new ExitCommand("exit", "Отключается от сервера и сохраняет файл"));
         registerCommand("remove_by_id", new RemoveByIdCommand("remove_by_id", "удалить элемент из коллекции по его id"));
         registerCommand("head", new HeadCommand("head", "вывести первый элемент коллекции"));
         registerCommand("print_genre", new PrintGenreCommand("print_genre", "Выводит все жанры использованные в коллекции"));

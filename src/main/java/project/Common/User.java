@@ -6,12 +6,12 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class User implements Serializable {
-
     private static final long serialVersionUID = 12312312312312321L;
-    private final String host;
-    private final int port;
+    private String host;
+    private int port;
     private Socket socket;
     private InputStream inputStream;
     private OutputStream outputStream;

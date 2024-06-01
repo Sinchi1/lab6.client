@@ -9,12 +9,13 @@ import project.Commands.AbstractCommand;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.Socket;
+import java.net.SocketException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ProgramController {
     private final CommandManager commandManager = new CommandManager();
-//    ConsolePrinter consolePrinter = new ConsolePrinter();
     private final User user;
     private final RequestSender requestSender;
     private final ResponseHandler  responseHandler = new ResponseHandler();;
@@ -77,13 +78,16 @@ public class ProgramController {
                                 }
                                 Request request = com.buildCommand(commName, args);
 
+                                if (commName.equalsIgnoreCase("exit")){
+                                    Response response = requestSender.sendRequest(request);
+                                    System.out.println(responseHandler.handleResponse(response));
+                                    user.close();
+                                }
+
                                 if (request != null) {
                                  Response response = requestSender.sendRequest(request);
                                     System.out.println(responseHandler.handleResponse(response));
 
-                                }
-                                else {
-                                    System.out.println("LSAFK[SFLASLFSL");
                                 }
 
                             } else {
@@ -94,10 +98,12 @@ public class ProgramController {
                                     " введите команду help.\nЕсли же вы их знаете в добрый путь!");
                             isFirstCom = false;
                         }
-                    } catch (RunnerException e) {
+                    } catch (SocketException e) {
+                        ConsolePrinter.messageToConsole("Отключение от сервера, выход из программы...");
                         return;
                     } catch (IOException | ClassNotFoundException e) {
-                        throw new RuntimeException(e);
+                        ConsolePrinter.messageToConsole("Произошла непридведнная ошибка");
+                        return;
                     }
                 }
             }
