@@ -20,11 +20,11 @@ public class ExecuteScriptCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public Request execute(String[] args) throws IOException {
+    public Request execute(String args) throws IOException {
         BufferedReader reader = null;
         ArrayList<String> result = new ArrayList<>();
         try {
-            reader = new BufferedReader(new FileReader(args[0]));
+            reader = new BufferedReader(new FileReader(args));
         } catch (FileNotFoundException e) {
             ConsolePrinter.messageToConsole("Такого файла скрипта не существует!");
         }

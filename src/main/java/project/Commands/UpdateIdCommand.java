@@ -25,8 +25,8 @@ public class UpdateIdCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public Request execute(String[] args){
-        int id = Integer.parseInt(args[0]);
+    public Request execute(String args){
+        int id = Integer.parseInt(args);
         Movie mov1 = movieReader.readMovie();
         mov1.setId(id);
         return new Request(commname,null,mov1);

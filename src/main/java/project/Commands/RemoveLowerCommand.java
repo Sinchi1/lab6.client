@@ -18,7 +18,7 @@ public class RemoveLowerCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public Request execute(String[] args) {
+    public Request execute(String args) {
         return new Request("remove_lower", args, null);
 
     }
