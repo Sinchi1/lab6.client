@@ -11,15 +11,19 @@ public class Request implements Serializable {
     @Serial
     private static final long serialVersionUID = 1404L;
     private final String commandName;
-    private final String commandStringArgument;
-    private final Serializable commandObjectArgument;
+    private String commandStringArgument;
+    private Serializable commandObjectArgument;
 
     CommandManager commandManager = new CommandManager();
 
-    public Request(String commandName, String commandStringArgument, Serializable commandObjectArgument) {
+    public Request(String commandName, Serializable commandObjectArgument) {
+        this.commandName = commandName;
+        this.commandObjectArgument = commandObjectArgument;
+    }
+
+    public Request(String commandName, String commandStringArgument) {
         this.commandName = commandName;
         this.commandStringArgument = commandStringArgument;
-        this.commandObjectArgument = commandObjectArgument;
     }
 
 

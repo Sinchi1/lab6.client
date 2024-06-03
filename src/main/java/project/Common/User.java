@@ -1,5 +1,7 @@
 package project.Common;
 
+import project.Managers.ConsolePrinter;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -38,7 +40,8 @@ public class User implements Serializable {
                 socket.close();
             }
         } catch (IOException e) {
-            throw new RuntimeException();
+            ConsolePrinter.messageToConsole("Соединение было нарушено, отключение пользователя");
+            System.exit(1);
         }
     }
 
