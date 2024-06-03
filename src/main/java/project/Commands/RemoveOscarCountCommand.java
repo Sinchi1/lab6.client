@@ -16,7 +16,7 @@ public class RemoveOscarCountCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public Request execute(String[] args) {
+    public Request execute(String args) {
         return new Request("remove_any_by_oscars_count", args, null);
 
     }

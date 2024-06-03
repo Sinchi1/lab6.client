@@ -21,7 +21,7 @@ public class AddCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public Request execute(String[] args) throws IOException {
+    public Request execute(String args) throws IOException {
         Movie mov1 = movieReader.readMovie();
     return new Request("add",null,mov1);
     }

@@ -3,7 +3,6 @@ package project.Managers;
 import project.Common.Request;
 import project.Common.Response;
 import project.Common.User;
-import project.Exceptions.RunnerException;
 import project.Commands.AbstractCommand;
 
 import java.io.File;
@@ -64,8 +63,6 @@ public class ProgramController {
                             }
                             String[] parts = line.split("\\s+", 2);
                             String commName = parts[0].toLowerCase();
-                            String[] args = new String[parts.length-1];
-                            System.arraycopy(parts,1,args,0,parts.length-1);
                             if (commandManager.isCommandExists(commName)) {
                                 AbstractCommand com = commandManager.getCommandByName(commName);
                                 if (commandManager.isHavingArgument(commName) && (parts.length == 1)) {
@@ -75,6 +72,10 @@ public class ProgramController {
                                 if ((commandManager.isHavingArgument(commName)) && (parts[1].split("\\s{1}", 2)).length > 1) {
                                     ConsolePrinter.messageToConsole("Вы перестарались и ввели лишний аргумент для команды!");
                                     continue;
+                                }
+                                String args = "";
+                                if (commandManager.isHavingArgument(commName)) {
+                                    args = parts[1];
                                 }
                                 Request request = com.buildCommand(commName, args);
 

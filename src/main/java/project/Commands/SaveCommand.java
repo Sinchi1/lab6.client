@@ -19,7 +19,7 @@ public class SaveCommand extends AbstractCommand {
      * @return void
      */
     @Override
-    public Request execute(String[] args) {
+    public Request execute(String args) {
         return new Request("save", args, null);
 
     }
