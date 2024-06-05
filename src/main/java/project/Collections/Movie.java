@@ -21,7 +21,7 @@ public class Movie implements Serializable {
     @JacksonXmlProperty(localName = "coordinates")
     private Coordinates coordinates; //Поле не может быть null@JacksonXmlProperty
     @JacksonXmlProperty(localName = "creationdate")
-    public java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    public ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     @JacksonXmlProperty(localName = "oscarcount")
     private Integer oscarsCount; //Значение поля должно быть больше 0, Поле не может быть null
     @JacksonXmlProperty(localName = "goldenpalmcount")
@@ -65,7 +65,7 @@ public class Movie implements Serializable {
         return coordinates;
     }
 
-    public java.time.ZonedDateTime getCreationDate() {
+    public ZonedDateTime getCreationDate() {
         return creationDate;
     }
 
@@ -97,7 +97,7 @@ public class Movie implements Serializable {
         this.coordinates = coordinates;
     }
 
-    public void setCreationDate(java.time.ZonedDateTime creationDate) {
+    public void setCreationDate(ZonedDateTime creationDate) {
         this.creationDate = creationDate;
     }
 

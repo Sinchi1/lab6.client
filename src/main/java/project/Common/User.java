@@ -1,5 +1,6 @@
 package project.Common;
 
+import project.Commands.ExitCommand;
 import project.Managers.ConsolePrinter;
 
 import java.io.IOException;
@@ -41,7 +42,8 @@ public class User implements Serializable {
             }
         } catch (IOException e) {
             ConsolePrinter.messageToConsole("Соединение было нарушено, отключение пользователя");
-            System.exit(1);
+            ExitCommand exitCommand = new ExitCommand("","");
+            exitCommand.execute("");
         }
     }
 

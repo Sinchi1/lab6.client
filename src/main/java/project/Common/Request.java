@@ -1,11 +1,13 @@
 package project.Common;
 
+import project.Collections.Movie;
 import project.Commands.AbstractCommand;
 import project.Managers.CommandManager;
 
 import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Request implements Serializable {
     @Serial
@@ -14,9 +16,12 @@ public class Request implements Serializable {
     private String commandStringArgument;
     private Serializable commandObjectArgument;
 
-    CommandManager commandManager = new CommandManager();
+    public Request(String commandName, Movie commandObjectArgument) {
+        this.commandName = commandName;
+        this.commandObjectArgument = commandObjectArgument;
+    }
 
-    public Request(String commandName, Serializable commandObjectArgument) {
+    public Request(String commandName, ArrayList<String> commandObjectArgument) {
         this.commandName = commandName;
         this.commandObjectArgument = commandObjectArgument;
     }
@@ -25,8 +30,6 @@ public class Request implements Serializable {
         this.commandName = commandName;
         this.commandStringArgument = commandStringArgument;
     }
-
-
 
     public String getCommandName() {
         return commandName;
