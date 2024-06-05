@@ -36,6 +36,6 @@ public class ExecuteScriptCommand extends AbstractCommand {
                 result.add(line);
             }
         }
-        return new Request("execute_script", args, (Serializable) result );
+        return new Request("execute_script", result );
     }
 }

@@ -21,7 +21,7 @@ public class HelpCommand extends AbstractCommand  {
 
     @Override
     public Request execute(String args) {
-        return new Request(commname, args, null);
+        return new Request(commname, args);
     }
 
 }

@@ -23,6 +23,6 @@ public class AddCommand extends AbstractCommand {
     @Override
     public Request execute(String args) throws IOException {
         Movie mov1 = movieReader.readMovie();
-    return new Request("add",null,mov1);
+    return new Request("add",mov1);
     }
 }

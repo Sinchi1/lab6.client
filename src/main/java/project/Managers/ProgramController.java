@@ -37,12 +37,12 @@ public class ProgramController {
                 ConsolePrinter.messageToConsole("Сервер не запущен");
                 System.exit(1);
             }
-            System.out.println("Подключение прошло успешно...");
+            ConsolePrinter.messageToConsole("Подключение прошло успешно...");
             commandManager.cmdAdd();
                 boolean isFirstCom = true;
                 boolean flagSearch = false;
                 Thread thread = new Thread(() -> {
-                    System.out.println("\nВыход из программы");
+                    ConsolePrinter.messageToConsole("\nВыход из программы");
                 });
                 Scanner scan = new Scanner(System.in);
                 Runtime.getRuntime().addShutdownHook(thread);
@@ -81,13 +81,13 @@ public class ProgramController {
 
                                 if (commName.equalsIgnoreCase("exit")){
                                     Response response = requestSender.sendRequest(request);
-                                    System.out.println(responseHandler.handleResponse(response));
+                                    ConsolePrinter.messageToConsole(responseHandler.handleResponse(response));
                                     user.close();
                                 }
 
                                 if (request != null) {
                                  Response response = requestSender.sendRequest(request);
-                                    System.out.println(responseHandler.handleResponse(response));
+                                    ConsolePrinter.messageToConsole(responseHandler.handleResponse(response));
 
                                 }
 
@@ -103,7 +103,7 @@ public class ProgramController {
                         ConsolePrinter.messageToConsole("Отключение от сервера, выход из программы...");
                         return;
                     } catch (IOException | ClassNotFoundException e) {
-                        ConsolePrinter.messageToConsole("Произошла непридведнная ошибка");
+                        ConsolePrinter.messageToConsole("Произошла непредвиденная ошибка");
                         return;
                     }
                 }

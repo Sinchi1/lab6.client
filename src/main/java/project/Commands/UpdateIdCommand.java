@@ -29,6 +29,6 @@ public class UpdateIdCommand extends AbstractCommand {
         int id = Integer.parseInt(args);
         Movie mov1 = movieReader.readMovie();
         mov1.setId(id);
-        return new Request(commname,null,mov1);
+        return new Request(commname,mov1);
     }
 }
