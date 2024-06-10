@@ -28,19 +28,21 @@ public class ProgramController {
     }
 
     public void run() {
-
-
+        Scanner scanner = new Scanner(System.in);
         while(true) {
-            try {
-                user.run();
-            } catch (IOException e) {
-                ConsolePrinter.messageToConsole("Сервер не запущен");
-                System.exit(1);
+            while (true) {
+                try {
+                    user.run();
+                } catch (IOException e) {
+                    ConsolePrinter.messageToConsole("Сервер не запущен, для попытки переподключения нажмите Enter");
+                    scanner.nextLine();
+                    continue;
+                }
+                break;
             }
             ConsolePrinter.messageToConsole("Подключение прошло успешно...");
             commandManager.cmdAdd();
                 boolean isFirstCom = true;
-                boolean flagSearch = false;
                 Thread thread = new Thread(() -> {
                     ConsolePrinter.messageToConsole("\nВыход из программы");
                 });
@@ -100,7 +102,20 @@ public class ProgramController {
                             isFirstCom = false;
                         }
                     } catch (SocketException e) {
-                        ConsolePrinter.messageToConsole("Отключение от сервера, выход из программы...");
+                        ConsolePrinter.messageToConsole("Сервер был отключен.. Попытка переподключиться ");
+                        while (true) {
+                            try {
+                                user.run();
+                            } catch (IOException b) {
+                                ConsolePrinter.messageToConsole("Сервер не запущен, для попытки переподключения нажмите Enter \nДля отключения напишите exit");
+                                String answer = scanner.nextLine();
+                                if (answer.equalsIgnoreCase("exit")){
+                                    System.exit(1);
+                                }
+                                continue;
+                            }
+                            break;
+                        }
                         return;
                     } catch (IOException | ClassNotFoundException e) {
                         ConsolePrinter.messageToConsole("Произошла непредвиденная ошибка");

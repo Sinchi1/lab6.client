@@ -32,10 +32,33 @@ public class ExecuteScriptCommand extends AbstractCommand {
             String line = reader.readLine();
             if (line == null) {
                 break;
+            } else if (line.contains("execute_script")) {
+                result.addAll(readScript(line));
             } else {
                 result.add(line);
             }
         }
         return new Request("execute_script", result );
+    }
+
+    public ArrayList<String> readScript(String args) throws IOException {
+        String[] parts = args.split("\\s+", 2);
+        BufferedReader reader = null;
+        ArrayList<String> result = new ArrayList<>();
+        try {
+            reader = new BufferedReader(new FileReader(parts[1]));
+        } catch (FileNotFoundException e) {
+            ConsolePrinter.messageToConsole("Такого файла скрипта не существует!");
+            return result;
+        }
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) {
+                break;
+            } else {
+                result.add(line);
+            }
+        }
+        return result;
     }
 }
