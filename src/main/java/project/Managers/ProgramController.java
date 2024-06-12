@@ -15,15 +15,13 @@ import java.util.Scanner;
 
 public class ProgramController {
     private final CommandManager commandManager = new CommandManager();
-    private final User user;
+    private final static User user = new User("localhost",1000); ;
     private final RequestSender requestSender;
     private final ResponseHandler  responseHandler = new ResponseHandler();;
-
     private static final String SERVER_ADDRESS = "localhost";
     private static final int SERVER_PORT = 1000;
 
     public ProgramController() {
-        user = new User(SERVER_ADDRESS,SERVER_PORT);
         requestSender = new RequestSender(user);
     }
 
@@ -123,5 +121,9 @@ public class ProgramController {
                     }
                 }
             }
+        }
+
+        public User getUser(){
+        return user;
         }
     }

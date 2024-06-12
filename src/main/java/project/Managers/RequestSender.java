@@ -21,11 +21,8 @@ public class RequestSender {
         ObjectOutputStream outputStream = new ObjectOutputStream(byteArrayOutputStream);
         outputStream.writeObject(request);
         outputStream.close();
-
         user.getOutputStream().write(byteArrayOutputStream.toByteArray());
-
         ObjectInputStream objectInputStream = new ObjectInputStream(user.getInputStream());
-
         return (Response) objectInputStream.readObject();
     }
 }
